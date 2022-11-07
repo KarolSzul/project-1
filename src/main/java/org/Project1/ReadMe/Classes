@@ -1,0 +1,6 @@
+Planned classes:
+
+1.	Player – id - integer, name - string, numberOfPoints - integer
+2.	Questions – Category (4 – enum), pointReward - integer, anser - String, question - string
+3.	Points – currentPoints - integer, metody addPoints, substractPoints,
+4.	* Persistance layer – zapisywanie i podczytywanie pytań

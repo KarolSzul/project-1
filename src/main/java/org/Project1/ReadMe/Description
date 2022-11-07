@@ -1,0 +1,17 @@
+Product description:
+
+1.	The goal of the task game is to design a game called Jeopardy.
+2.	There are three players in the game.
+3.	The goal of the games is to collect as many points as possible.
+4.	The points are won by answering questions.
+5.	There are 16 questions total, which belong to 4 different categories (sports, cars, famous and geography).
+6.	Each category consists 4 questions , one of 4 different difficulty and point reward (250, 500, 1000, 2000).
+7.	The game starts a random player and his turn begins.
+8.	In the beginning of a turn, player chooses a category and difficulty (and reward) of a question.
+9.	The player is then asked that question.
+10.	 If he answers correctly, he gains the amount of points for the question and keeps playing.
+11.	 If he fails to give a correct answer, then he loses that amount of points and the next player’s turn begins.
+12.	 Player cannot have negative amount of points (the minimum is zero).
+13.	 After player gives his answer to a question, the question is removed from the pool.
+14.	 The game continues until the pool of questions is empty.
+15.	 The game is won by a player with the highest amount of points.
