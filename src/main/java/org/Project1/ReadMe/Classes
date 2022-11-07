@@ -1,6 +1,9 @@
 Planned classes:
 
 1.	Player – id - integer, name - string, numberOfPoints - integer
-2.	Questions – Category (4 – enum), pointReward - integer, anser - String, question - string
-3.	Points – currentPoints - integer, metody addPoints, substractPoints,
-4.	* Persistance layer – zapisywanie i podczytywanie pytań
+2.	Questions – (abstract) , answer - String, question - string:
+2a) 4 classes inheriting from Questions: Geography, Cars, SPorts, Famous.
+3. QuestionPool - ma zbiór pytań zawartych w jednej rozgrywce, ma metode do usuwania pytań
+po ich zadaniu i podaniu odpowiedzi.
+4. Game - ma 3 (lub więcej) obiektów klasy player, ma instancję klasy QuestionPool i ma metodę isGameOver
+3.	* Persistance layer – zapisywanie i podczytywanie pytań
