@@ -17,5 +17,5 @@ public abstract class Questions {
     public abstract boolean isAnswearCorrect(String answear);
 
     public abstract Integer givePoints( Integer valueOfQuestion);
-    
+
 } // Class end
