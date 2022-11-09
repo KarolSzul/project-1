@@ -46,7 +46,7 @@ public class Player {
         Integer category = scannerCategory.nextInt();
         System.out.println(" Choose value of answer : [1] for 250, [2] for 500, [3] for 1000, [4] for 2000");
         Scanner scannerScore = new Scanner(System.in);
-        String score = scannerScore.nextLine();
+        Integer score = scannerScore.nextInt();
         // typ zwracany do zmiany jak będzie dalej pasować
     }
 

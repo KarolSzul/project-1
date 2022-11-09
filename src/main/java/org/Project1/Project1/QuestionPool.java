@@ -6,7 +6,7 @@ public class QuestionPool {
 
     public static void main(String[] args) {
 
-        Map<Integer, String> questions = new LinkedHashMap<>();
+        LinkedHashMap<Integer, String> questions = new LinkedHashMap<>();
 
         questions.put(11, "This Japanese luxury brand debuted in the U.S. with the Legend sedan in 1986");
         questions.put(12, "");
