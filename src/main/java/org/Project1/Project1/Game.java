@@ -20,7 +20,7 @@ public class Game {
 
     // Jeżeli odpowiedz jest prawidłowa, to gracz gra dalej. Jeżeli nie to przeskakujemy na następnego.
 
-    // Po puli 16 pytań gra powinna się zakończyć
+    // Po puli 16 pytań gra powinna się zakończyć. 
 
 
 
