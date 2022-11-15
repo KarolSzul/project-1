@@ -1,29 +1,46 @@
 package org.Project1.Project1;
 
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.*;
 
 public class QuestionPool {
 
-    public static void main(String[] args) {
+    String filePath = "Jeopardy-2.csv";
+    HashSet<Question> questions;
 
-        LinkedHashMap<Integer, Questions> questions = new LinkedHashMap<Integer, Questions>();
 
-        questions.put(11, GeographyQuestion.geographyQuestion1);
-        questions.put(12, GeographyQuestion.geographyQuestion2);
-        questions.put(13, GeographyQuestion.geographyQuestion3);
-        questions.put(14, GeographyQuestion.geographyQuestion4);
-        questions.put(21, CarsQuestion.carsQuestion1);
-        questions.put(22, CarsQuestion.carsQuestion2);
-        questions.put(23, CarsQuestion.carsQuestion3);
-        questions.put(24, CarsQuestion.carsQuestion4);
-        questions.put(31, FamousQuestion.famousQuestion1);
-        questions.put(32, FamousQuestion.famousQuestion2);
-        questions.put(33, FamousQuestion.famousQuestion3);
-        questions.put(34, FamousQuestion.famousQuestion4);
-        questions.put(41, SportsQuestion.sportsQuestion1);
-        questions.put(42, SportsQuestion.sportsQuestion2);
-        questions.put(43, SportsQuestion.sportsQuestion3);
-        questions.put(44, SportsQuestion.sportsQuestion4);
-
-        }
+    public int numberOfQuestions(){
+        return questions.size();
     }
+
+    public QuestionPool(){
+
+// przerobić na zwykłe czytanie pliku - linijka po linijce aż do końca pliku i zamknięcie.
+
+        BufferedReader bufferedReader;
+        String singleLine;
+        questions = new HashSet<Question>();
+        try {
+            bufferedReader = new BufferedReader(new
+                    FileReader(filePath));
+            while ((singleLine = bufferedReader.readLine()) != null)
+            {
+                Question question = new Question(singleLine);
+                questions.add(question);
+            }
+            bufferedReader.close();
+        } catch (FileNotFoundException e) {
+            System.err.println("File not found");
+        } catch (IOException e) {
+            System.err.println("Unable to read the file.");
+        }
+
+
+
+    } // construktor end
+
+    } // class end
