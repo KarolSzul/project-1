@@ -4,13 +4,13 @@ package org.Project1.Project1;
 public class Question {
 
     public String textContent;
-    public Integer reward;
+    public int reward;
     public String correctAnswer;
     public Category category;
 
     //KONSTRUKTOR
 
-    public Question(String textContent, Integer reward, String correctAnswer, Category category) {
+    public Question(String textContent, int reward, String correctAnswer, Category category) {
         this.textContent = textContent;
         this.reward = reward;
         this.correctAnswer = correctAnswer;
@@ -30,9 +30,5 @@ public class Question {
 
     }
 
-    // METODA "czy odpowiedz jest prawidłowa"
-    // public  boolean isAnswerCorrect(String answer);
-
-  //  public  Integer givePoints( Integer valueOfQuestion);
 
 } // Class end

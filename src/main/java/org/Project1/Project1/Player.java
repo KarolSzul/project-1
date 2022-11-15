@@ -1,6 +1,7 @@
 package org.Project1.Project1;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -78,38 +79,35 @@ public class Player {
     }
 
 
-
-
-
-
     // Metoda wybierz pytanie
     public void chooseQuestion() {  // metoda do wybierania kategorii i wartości pytania
 
         Scanner scanner = new Scanner(System.in);
-        int[] categoriesArray = {1, 2, 3, 4};
-        System.out.println("Choose your Category: [1] Cars [2] Famous [3] Geography [4] Sports");
-//        System.out.println("Choose your Category:"  + Category.CARS);
-//        if(int i = 0; i < Category.SPORTS; i ++){
-//            System.out.println("[" +i+ "] " +Category(i));
-//        }
-        Integer category = scanner.nextInt();
-        try {
-            System.out.println(categoriesArray[category]);
-        } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("Choose correct category; [1] Cars [2] Famous [3] Geography [4] Sports ");
-        }
+        System.out.println("Choose your Category: [1] Geography [2] Cars [3] Famous [4] Sports");
+        Integer userInput = scanner.nextInt();
+        Category category = Category.values()[userInput - 1];
 
-        System.out.println(" Choose value of answer : [1] for 250, [2] for 500, [3] for 1000, [4] for 2000");
-        int[] valuesArray = {250, 500, 1000, 2000};
-        Integer score = scanner.nextInt();
+        System.out.println(" Choose value of answer : 100, 250, 500, 1000");
+        int score = scanner.nextInt();
+        var list = List.of(100,250, 500, 1000);
+        var result = list.contains(score);
 
-        try {
-            System.out.println(valuesArray[score]);
-        } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("Choose correct value of answer : [1] for 250, [2] for 500, [3] for 1000, [4] for 2000");
-            // typ zwracany do zmiany jak będzie dalej pasować
+        if(result) {
+            System.out.println("wybrano kategorie :" + category + " o wartosci; " + score);
+        } else {
+            System.out.println("cos nie hello");
         }
+        System.out.println();
+
+
     }
+
+    public String answerFromPlayer(){
+        Scanner scanner = new Scanner(System.in);
+        String answear = scanner.nextLine();
+        return answear;
+    }
+
 } //Class end
 
 

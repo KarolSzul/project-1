@@ -27,6 +27,8 @@ public class QuestionPool {
         try {
             bufferedReader = new BufferedReader(new
                     FileReader(filePath));
+
+            // CARS;250;This Japanese luxury brand debuted in the U.S. with the Legend sedan in 1986;Acura
             while ((singleLine = bufferedReader.readLine()) != null)
             {
                 Question question = new Question(singleLine);
@@ -38,9 +40,25 @@ public class QuestionPool {
         } catch (IOException e) {
             System.err.println("Unable to read the file.");
         }
-
-
-
     } // construktor end
+
+    // metoda do usuwanie pytan z puli
+    public void removeQuestion(Question question){
+        questions.remove(question);
+    }
+
+    public Question selectQuestion(Category category, int score) {
+        HashSet<Question> result = new HashSet<>();
+
+        for ( Question question : questions) {
+            if(question.category == category && question.reward == score) {
+                result.add(question);
+            }
+        }
+        Question[] resultNumbers = result.toArray(new Question[result.size()]);
+        Random randomQuestion = new Random();
+        int randomNumber = randomQuestion.nextInt(result.size());
+        return resultNumbers[randomNumber];
+    }
 
     } // class end
