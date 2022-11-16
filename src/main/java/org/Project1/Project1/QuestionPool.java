@@ -28,7 +28,7 @@ public class QuestionPool {
             bufferedReader = new BufferedReader(new
                     FileReader(filePath));
 
-            // CARS;250;This Japanese luxury brand debuted in the U.S. with the Legend sedan in 1986;Acura
+            // CARS;500;This Japanese luxury brand debuted in the U.S. with the Legend sedan in 1986;Acura
             while ((singleLine = bufferedReader.readLine()) != null)
             {
                 Question question = new Question(singleLine);
@@ -43,7 +43,7 @@ public class QuestionPool {
     } // construktor end
 
     // metoda do usuwanie pytan z puli
-    public void removeQuestion(Question question){
+    public void  removeQuestion(Question question){
         questions.remove(question);
     }
 
@@ -61,4 +61,6 @@ public class QuestionPool {
         return resultNumbers[randomNumber];
     }
 
-    } // class end
+
+
+} // class end

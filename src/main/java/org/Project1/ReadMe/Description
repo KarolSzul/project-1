@@ -5,7 +5,7 @@ Product description:
 3.	The goal of the games is to collect as many points as possible.
 4.	The points are won by answering questions.
 5.	There are 16 questions total, which belong to 4 different categories (sports, cars, famous and geography).
-6.	Each category consists 4 questions , one of 4 different difficulty and point reward (250, 500, 1000, 2000).
+6.	Each category consists 4 questions , one of 4 different difficulty and point reward (500, 1000, 2000, 2000).
 7.	The game starts a random player and his turn begins.
 8.	In the beginning of a turn, player chooses a category and difficulty (and reward) of a question.
 9.	The player is then asked that question.

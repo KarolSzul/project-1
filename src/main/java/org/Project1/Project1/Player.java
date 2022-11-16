@@ -80,34 +80,47 @@ public class Player {
 
 
     // Metoda wybierz pytanie
-    public void chooseQuestion() {  // metoda do wybierania kategorii i wartości pytania
+    public static void chooseQuestion() {  // metoda do wybierania kategorii i wartości pytania
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Choose your Category: [1] Geography [2] Cars [3] Famous [4] Sports");
         Integer userInput = scanner.nextInt();
+        while (userInput != 1 && userInput != 2 && userInput != 3 && userInput != 4) {
+            System.out.println("Oops, your input is wrong! Please try again.");
+            System.out.println("Choose your Category: [1] Geography [2] Cars [3] Famous [4] Sports");
+            userInput = scanner.nextInt();
+        }
+        // mozna tu wylapac blad podania stringa zamiast inta
         Category category = Category.values()[userInput - 1];
 
-        System.out.println(" Choose value of answer : 100, 250, 500, 1000");
+
+        System.out.println(" Choose value of answer : 250, 500, 1000, 2000");
         int score = scanner.nextInt();
-        var list = List.of(100,250, 500, 1000);
+        var list = List.of(250, 500, 1000, 2000);
         var result = list.contains(score);
 
-        if(result) {
-            System.out.println("wybrano kategorie :" + category + " o wartosci; " + score);
-        } else {
-            System.out.println("cos nie hello");
+
+        while (!result) {
+            System.out.println("Oops, your input is wrong! Please try again.");
+            score = scanner.nextInt();
+            result = list.contains(score);
         }
+            System.out.println("wybrano kategorie :" + category + " o wartosci; " + score);
+
+
+
+
         System.out.println();
 
 
     }
 
-    public String answerFromPlayer(){
+    public static String answerFromPlayer(){
         Scanner scanner = new Scanner(System.in);
-        String answear = scanner.nextLine();
-        return answear;
+        String answer = scanner.nextLine();
+        return answer;
     }
 
+
+
 } //Class end
-
-

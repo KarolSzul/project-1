@@ -20,7 +20,7 @@ public class Question {
     public Question(String lineFromCSV) {
         // Z jednej linijki chcemy wyciągnać od razu wszystkie informacje (kategoria, punkty, pytanie, odpowiedz)
 
-        // CARS;250;This Japanese luxury brand debuted in the U.S. with the Legend sedan in 1986;Acura
+        // CARS;500;This Japanese luxury brand debuted in the U.S. with the Legend sedan in 1986;Acura
         String[] separatedLine = lineFromCSV.split(";");
 
         this.category = Category.valueOf(separatedLine[0]); //Caterofy jest Enumem
