@@ -1,10 +1,17 @@
 package org.Project1.Project1;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+
+import java.sql.SQLOutput;
 
 public class Main {
+    public static void main(String[] args) {
+
+        Category category = Category.CARS;
+        Integer score = 250;
+        QuestionPool pool = new QuestionPool();
+        Question question = QuestionPool.selectQuestion(category, score);
+        System.out.println(question.textContent);
+        System.out.println("Your answer:");
 
 
 
@@ -17,9 +24,5 @@ public class Main {
 //        player1.answerFromPlayer();
 
 
-
-
-
-
-
+    }
 }

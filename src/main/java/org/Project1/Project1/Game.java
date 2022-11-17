@@ -16,24 +16,28 @@ public class Game {
     public static void main(String[] args) throws EmptyStringException {
 
         Player.settingPlayers();
+        QuestionPool questionPool = new QuestionPool();
         System.out.println();
         System.out.println();
-        Integer width = 4;
-        Integer height = 4;
-        String[][] board = TableBuilder.getCleanBoard(width, height);
-        TableBuilder.displayBoard(board);
-        System.out.println();
 
-        for (int i = 1; i <= 16; i++) {
+        do {
+            do {
+                Player player1 = null;
+                player1.setRight(true);
+                Integer width = 4;
+                Integer height = 4;
+                String[][] board = TableBuilder.getCleanBoard(width, height);
+                TableBuilder.displayBoard(board);
+                System.out.println();
+                Player.chooseQuestion(questionPool);
+                System.out.println();
+            }
+                while ();
 
 
-            Player.chooseQuestion();
-            System.out.println();
-
-            Player.answerFromPlayer();
-
-
-        }
+            }
+         while ();
+    }
         // wpisanie odpowiedz przez gracz ->  Metoda Player.answerFromPlayer(++) -> jest już w klasie Player.105-108
 
         // porówanie odpowiedzi z Player.answerFromPlayer z prawidlową odpowiedzia  correctAnswer

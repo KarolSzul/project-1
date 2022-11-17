@@ -1,7 +1,6 @@
 package org.Project1.Project1;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -9,12 +8,14 @@ public class Player {
     private Integer id;
     private String name;
     private Integer numberOfPoints;
+    private boolean isRight;
 
     // Konstruktor
-    public Player(Integer id, String name, Integer numberOfPoints) {
+    public Player(Integer id, String name, Integer numberOfPoints, boolean isRight) {
         this.id = id;
         this.name = name;
         this.numberOfPoints = numberOfPoints;
+        this.isRight = isRight;
     }
 
     // Gettery i settery
@@ -42,27 +43,33 @@ public class Player {
         this.numberOfPoints = numberOfPoints;
     }
 
+    public boolean isRight() {
+        return isRight;
+    }
+
+    public void setRight(boolean right) {
+        isRight = right;
+    }
 
     public static List<Player> settingPlayers() throws EmptyStringException {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Name of first player: "); //wczytywanie nazwy 1. gracza
         String name1 = scanner.nextLine();
-        if(name1 == null || name1.isEmpty()){
-            throw  new EmptyStringException("Please write correct name!");
+        if (name1 == null || name1.isEmpty()) {
+            throw new EmptyStringException("Please write correct name!");
         }
-        Player player1 = new Player(1, name1, 0); // tworzenie 1. gracza
+        Player player1 = new Player(1, name1, 0, true); // tworzenie 1. gracza
 
 
         System.out.println("Name of second player: "); //wczytywanie nazwy 2. gracza
         String name2 = scanner.nextLine();
-        Player player2 = new Player(2, name2, 0); // tworzenie 2. gracza
+        Player player2 = new Player(2, name2, 0, true); // tworzenie 2. gracza
 
 
         System.out.println("Name of third player: "); //wczytywanie nazwy 3. gracza
         String name3 = scanner.nextLine();
-        Player player3 = new Player(3, name3, 0); // // tworzenie 3. gracza
-
+        Player player3 = new Player(3, name3, 0, true); // // tworzenie 3. gracza
 
 
         System.out.println("Player " + player1.getId() + " : " + player1.getName() + " Number of points: " + player1.getNumberOfPoints());
@@ -80,7 +87,7 @@ public class Player {
 
 
     // Metoda wybierz pytanie
-    public static void chooseQuestion() {  // metoda do wybierania kategorii i wartości pytania
+    public static void chooseQuestion(QuestionPool questionPool) {  // metoda do wybierania kategorii i wartości pytania
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Choose your Category: [1] Geography [2] Cars [3] Famous [4] Sports");
@@ -105,22 +112,46 @@ public class Player {
             score = scanner.nextInt();
             result = list.contains(score);
         }
-            System.out.println("wybrano kategorie :" + category + " o wartosci; " + score);
-
-
+        System.out.println("wybrano kategorie :" + category + " o wartosci: " + score);
 
 
         System.out.println();
+        System.out.println();
 
+        Question question = QuestionPool.selectQuestion(category, score); // wyswietlanie pytania
+        System.out.println(question.textContent);
+        String answer = scanner.nextLine(); // wpisywanie odpowiedzi
+        System.out.println("Prawidłowa odpowiedź to: " + question.correctAnswer); // wyswietlanie prawidłowej odpowiedzi
+
+
+        if (answer.equalsIgnoreCase(question.correctAnswer)) // porównywanie odpowiedzi
+        {
+            System.out.println("Dobra odpowiedź, do Twojego wyniku zostało dodane " + score + " punktów. Możesz znowu wybrać kategorię.");
+            questionPool.removeQuestion(question);
+        }
+        // boolean dalej jest true i następuje następna iteracja
+
+        else{
+            System.out.println("Zła odpowiedź, od Twojego wyniku zostało odjętych " + score + " punktów. Teraz pora na następnego gracza.");
+            questionPool.removeQuestion(question);
+        }
+        // boolean zmienia wartość na false i przechodzi do następnego playera
 
     }
 
-    public static String answerFromPlayer(){
+    ;
+
+
+}
+
+
+    public static String answerFromPlayer() {
         Scanner scanner = new Scanner(System.in);
         String answer = scanner.nextLine();
         return answer;
-    }
 
+
+    }
 
 
 } //Class end

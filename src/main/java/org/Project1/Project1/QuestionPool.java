@@ -10,7 +10,7 @@ import java.util.*;
 public class QuestionPool {
 
     String filePath = "Jeopardy-2.csv";
-    HashSet<Question> questions;
+    static HashSet<Question> questions;
 
 
     public int numberOfQuestions(){
@@ -47,7 +47,7 @@ public class QuestionPool {
         questions.remove(question);
     }
 
-    public Question selectQuestion(Category category, int score) {
+    public static Question selectQuestion(Category category, int score) {
         HashSet<Question> result = new HashSet<>();
 
         for ( Question question : questions) {
