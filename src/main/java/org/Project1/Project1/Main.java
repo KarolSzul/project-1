@@ -2,16 +2,19 @@ package org.Project1.Project1;
 
 
 import java.sql.SQLOutput;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
 
-        Category category = Category.CARS;
-        Integer score = 250;
-        QuestionPool pool = new QuestionPool();
-        Question question = QuestionPool.selectQuestion(category, score);
-        System.out.println(question.textContent);
-        System.out.println("Your answer:");
+
+//        Category category = Category.CARS;
+//        Integer score = 250;
+//        QuestionPool pool = new QuestionPool();
+//        Question question = QuestionPool.selectQuestion(category, score);
+//        System.out.println(question.textContent);
+//        System.out.println("Your answer:");
 
 
 

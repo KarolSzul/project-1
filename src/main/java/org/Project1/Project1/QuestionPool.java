@@ -43,7 +43,7 @@ public class QuestionPool {
     } // construktor end
 
     // metoda do usuwanie pytan z puli
-    public void  removeQuestion(Question question){
+    public static void  removeQuestion(Question question){
         questions.remove(question);
     }
 
@@ -60,6 +60,8 @@ public class QuestionPool {
         int randomNumber = randomQuestion.nextInt(result.size());
         return resultNumbers[randomNumber];
     }
+
+
 
 
 
