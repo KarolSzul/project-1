@@ -20,8 +20,8 @@ public class Game {
         System.out.println();
         System.out.println();
 
-        do {
-            do {
+        do { // ta pętla jest od grania do końca pytań
+            do { // ta pętla jest od zmiany zawodników
                 Player player1 = null;
                 player1.setRight(true);
                 Integer width = 4;
@@ -38,14 +38,14 @@ public class Game {
             }
          while ();
     }
-        // wpisanie odpowiedz przez gracz ->  Metoda Player.answerFromPlayer(++) -> jest już w klasie Player.105-108
+        // wpisanie odpowiedz przez gracz ->  Metoda Player.answerFromPlayer(++) -> jest już w klasie Player.105-108 // zrobione
 
-        // porówanie odpowiedzi z Player.answerFromPlayer z prawidlową odpowiedzia  correctAnswer
-        // i dodanie/odejmowanie punktow dla gracza
+        // porówanie odpowiedzi z Player.answerFromPlayer z prawidlową odpowiedzia  correctAnswer // zrobione
+        // i dodanie/odejmowanie punktow dla gracza // do zrobienia
 
-        // uzycie metody QuestionPoll.remone(questions) -> metoda jest już napisana QuestionPoll 46-47
+        // uzycie metody QuestionPoll.remone(questions) -> metoda jest już napisana QuestionPoll 46-47 // zrobione
 
-        // Jeżeli odpowiedz jest prawidłowa, to gracz gra dalej. Jeżeli nie to przeskakujemy na następnego.
+        // Jeżeli odpowiedz jest prawidłowa, to gracz gra dalej. Jeżeli nie to przeskakujemy na następnego. // do zrobienia
 
         // Po puli 16 pytań gra powinna się zakończyć.
 
