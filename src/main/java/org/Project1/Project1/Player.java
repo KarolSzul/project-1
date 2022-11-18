@@ -1,9 +1,6 @@
 package org.Project1.Project1;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Player {
     private Integer id;
@@ -142,15 +139,18 @@ public class Player {
         System.out.println(question.textContent);
     }
 
-    public static boolean canYouAskThatQuestion (Question question, HashMap<Category, Integer> askedQuestions){
-        HashMap<Category, Integer> temp = new HashMap<>(askedQuestions);
-        temp.put(question.category, question.reward);
-        if(temp.size()==askedQuestions.size()) {
-            return false;
+    public static boolean canYouAskThatQuestion (Question  question, Question[] askedQuestions) {
+        for (Question allAskedQueestions : askedQuestions) {
+            if (allAskedQueestions == null) {
+                return true;
+            }
+            else if (question.reward == allAskedQueestions.reward && question.category == allAskedQueestions.category) {
+                return false;
+            }
         }
         return true;
+
     }
-    ;
 
     public static String insertAnswer() {
         Scanner scanner = new Scanner(System.in);
