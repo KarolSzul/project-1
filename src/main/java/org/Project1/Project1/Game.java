@@ -5,10 +5,33 @@ import java.util.List;
 import java.util.Map;
 
 public class Game {
-    QuestionPool pool;
-    List<Player> players;
-    public static Map<Category, Integer> askedQuestions = new HashMap<>(); // ta mapa nie ma już sensu
-    TableBuilder tableBuilder = new TableBuilder();
+    private QuestionPool pool;
+    private List<Player> players;
+    private TableBuilder tableBuilder = new TableBuilder();
+
+    public QuestionPool getPool() {
+        return pool;
+    }
+
+    public void setPool(QuestionPool pool) {
+        this.pool = pool;
+    }
+
+    public List<Player> getPlayers() {
+        return players;
+    }
+
+    public void setPlayers(List<Player> players) {
+        this.players = players;
+    }
+
+    public TableBuilder getTableBuilder() {
+        return tableBuilder;
+    }
+
+    public void setTableBuilder(TableBuilder tableBuilder) {
+        this.tableBuilder = tableBuilder;
+    }
 
     public Game(QuestionPool pool, List<Player> players) {
         this.pool = pool;
@@ -21,11 +44,11 @@ public class Game {
         QuestionPool questionPool = new QuestionPool();
         Question[] askedQuestions = new Question[16];
 
-        int turn =0;
-        int numberOfQuestionsAsked=0;
+        int turn = 0;
+        int numberOfQuestionsAsked = 0;
+        final int numberOfRoundsTotal=16;// how many rounds we want to play
 
-        while (numberOfQuestionsAsked < 16) { // ta pętla jest od grania do końca pytań
-//        for (int i=1; i<=16; i++) {
+        while (numberOfQuestionsAsked < numberOfRoundsTotal) { // ta pętla jest od grania do końca pytań
             System.out.println();
             int whichPlayer = Player.whosPlaying(turn);
             System.out.printf("Player %d is now playing.\n", whichPlayer);
@@ -39,13 +62,13 @@ public class Game {
                 while (!Player.canYouAskThatQuestion(thisTurnQuestion, askedQuestions)) {
                     System.out.println("This question has been used, please try another");
                     thisTurnQuestion = Player.chooseQuestion(questionPool);
-                } // tu musi byc inny warunek
-                askedQuestions[numberOfQuestionsAsked]=thisTurnQuestion;
+                }
+                askedQuestions[numberOfQuestionsAsked] = thisTurnQuestion;
                 numberOfQuestionsAsked++;
                 Player.displayQuestionText(thisTurnQuestion);
                 String playerAnswer = Player.insertAnswer();
                 correctAnswer = Player.isAnswerCorrect(playerAnswer, thisTurnQuestion.correctAnswer);
-                Player.addPoints(correctAnswer, thisTurnQuestion.reward, playerList[whichPlayer-1], thisTurnQuestion);
+                Player.addPoints(correctAnswer, thisTurnQuestion.reward, playerList[whichPlayer - 1], thisTurnQuestion);
                 QuestionPool.removeQuestion(thisTurnQuestion);
                 System.out.println();
             }

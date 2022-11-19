@@ -25,7 +25,7 @@ public class TableBuilder {
         return board;
     }
 
-
+        //TODO SPlit class and fix names of the methods - board or table
     public static void displayBoard(String[][] board) {
         String formatCategory = "%1$16s";
         String formatTopLetterChoiceCategory = "%1$4s";
